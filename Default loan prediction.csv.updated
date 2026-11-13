@@ -1,0 +1,79 @@
+# Loan Default Prediction | Python, Data Science & Machine Learning
+
+Predicts whether a borrower will default on a loan from employment status, bank balance and annual salary. The project shows how an imbalanced target can make accuracy misleading, and how class weighting and better metrics fix that.
+
+## Dataset
+
+- 10,000 borrower records, no missing values
+- Features: `Employed`, `Bank Balance`, `Annual Salary` (the `Index` column is dropped)
+- Target: `Defaulted?` (1 = default, 0 = no default)
+- Strong class imbalance: only about 3% of borrowers default
+- Train/test split: 70% / 30%, stratified so both sets keep the same default rate
+
+## Results
+
+### Step 1: Baseline model (Logistic Regression, no class weighting)
+
+| Metric | Value |
+|---|---|
+| Accuracy | 97.3% |
+| Precision (defaulters) | 0.69 |
+| Recall (defaulters) | 0.27 |
+| F1-score (defaulters) | 0.38 |
+
+|  | Predicted: No default | Predicted: Default |
+|---|---|---|
+| **Actual: No default** | 2,895 | 11 |
+| **Actual: Default** | 69 | 25 |
+
+A model that predicts "no default" for everyone would score 96.9% on this test set, so 97.3% accuracy is barely better than guessing. The baseline model catches only 27% of real defaulters.
+
+### Step 2: Improved models (class-balanced, scaled features, stratified split)
+
+Baseline accuracy (always predict "no default"): [__]%
+
+| Model | Accuracy | Precision | Recall | F1 | ROC-AUC |
+|---|---|---|---|---|---|
+| Logistic Regression | [__] | [__] | [__] | [__] | [__] |
+| Decision Tree | [__] | [__] | [__] | [__] | [__] |
+| Random Forest | [__] | [__] | [__] | [__] | [__] |
+
+**Best model:** [name], chosen because [e.g. it gave the highest recall on defaulters with acceptable precision].
+
+**What changed:** recall on defaulters improved from 0.27 to [__], while accuracy moved from 97.3% to [__]%. For lending, catching more real defaulters is worth a small drop in accuracy.
+
+**Top features:** [e.g. 1. Bank Balance, 2. Annual Salary, 3. Employed, from the Random Forest feature importances]
+
+## Tech Stack
+
+- **Language:** Python
+- **Libraries:** Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
+- **Models:** Logistic Regression, Decision Tree, Random Forest
+
+## Workflow
+
+1. Data loading and cleaning (missing values, duplicates)
+2. Exploratory data analysis (class balance, income distribution)
+3. Feature selection (drop the `Index` column)
+4. Stratified train/test split and feature scaling
+5. Baseline model, then class-balanced models
+6. Evaluation: confusion matrix, precision, recall, F1, ROC-AUC
+
+## How to Run
+
+```bash
+git clone https://github.com/sankalplohe-ai/loan-default-prediction.git
+cd loan-default-prediction
+pip install pandas numpy matplotlib seaborn scikit-learn
+jupyter notebook
+```
+
+Place `Default_loan_prediction.csv` in the same folder as the notebook.
+
+## Conclusion
+
+Accuracy alone overstated the baseline model on this imbalanced data. Class weighting and evaluating precision, recall, F1 and ROC-AUC on the defaulter class gave a more honest picture. Possible next steps: threshold tuning and resampling methods such as SMOTE.
+
+## Author
+
+Sankalpa Ratnabodhi · sankalplohe@gmail.com · [LinkedIn](https://www.linkedin.com/in/sankalpamahendra-ratnabodhilohe-88098b200)
