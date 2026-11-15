@@ -1,5 +1,5 @@
+The full runnable code is in [Default_loan_prediction_csv_updated.ipynb](Default_loan_prediction_csv_updated.ipynb)
 # Loan Default Prediction | Python, Data Science & Machine Learning
-
 Predicts whether a borrower will default on a loan from employment status, bank balance and annual salary. The project shows how an imbalanced target (only 3.3% defaults) makes accuracy misleading, and how class weighting and better metrics give a more honest evaluation.
 
 ## Dataset
