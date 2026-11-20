@@ -75,5 +75,4 @@ Place `Default_loan_prediction.csv` in the same folder as the notebook.
 Accuracy alone overstated the baseline model on this imbalanced data. Class weighting and evaluating precision, recall, F1 and ROC-AUC on the defaulter class gave a more honest picture and a clear precision/recall trade-off. Possible next steps: decision-threshold tuning, resampling (SMOTE) and a cost-sensitive evaluation.
 
 ## Author
-
-Sankalpa Ratnabodhi · sankalplohe@gmail.com · [LinkedIn](https://www.linkedin.com/in/sankalpamahendra-ratnabodhilohe-88098b200)
+Sankalpa Ratnabodhi Lohe · sankalplohe@gmail.com · [LinkedIn](https://www.linkedin.com/in/sankalpa-mahendra-ratnabodhi-lohe-88098b200)
