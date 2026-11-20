@@ -15,14 +15,14 @@ Predicts whether a borrower will default on a loan from employment status, bank 
 ### Step 1: Baseline (plain Logistic Regression)
 
 | Metric | Value |
-
+|---|---|
 | Accuracy | 97.3% |
 | Precision (defaulters) | 0.69 |
 | Recall (defaulters) | 0.27 |
 | F1-score (defaulters) | 0.38 |
 
 |  | Predicted: No default | Predicted: Default |
-
+|---|---|---|
 | **Actual: No default** | 2,895 | 11 |
 | **Actual: Default** | 69 | 25 |
 
@@ -33,16 +33,16 @@ A model that predicts "no default" for everyone scores 96.9% on this test set, s
 Baseline accuracy (always predict "no default"): 96.7%. Test set: 3,000 records, 100 defaulters.
 
 | Model | Accuracy | Precision | Recall | F1 | ROC-AUC |
-
+|---|---|---|---|---|---|
 | Logistic Regression | 0.863 | 0.182 | 0.890 | 0.303 | 0.951 |
 | Decision Tree | 0.849 | 0.159 | 0.820 | 0.266 | 0.885 |
-| Random Forest | 0.963 | 0.457 | 0.530 | 0.491 | 0.906 |
+| Random Forest | 0.967 | 0.517 | 0.310 | 0.388 | 0.891 |
 
-**Best at ranking risk:** Logistic Regression (ROC-AUC 0.951). **Best balance of precision and recall:** Random Forest (F1 0.49).
+**Best at ranking risk:** Logistic Regression (ROC-AUC 0.951). **Highest F1:** Random Forest (0.39), but it catches only 31 of 100 defaulters.
 
-**Trade-off:** class-balanced Logistic Regression catches 89 of 100 defaulters (recall 0.27 → 0.89) but flags 399 non-defaulters by mistake (precision 0.18). Random Forest raises fewer false alarms but catches only 53%. Which is better depends on cost: if missing a defaulter is far more expensive than reviewing a false alarm, the high-recall model wins.
+**Trade-off:** class-balanced Logistic Regression catches 89 of 100 defaulters (recall 0.27 → 0.89) but flags 399 non-defaulters by mistake (precision 0.18). Random Forest raises far fewer false alarms (29) but misses 69% of defaulters. Which is better depends on cost: if missing a defaulter is far more expensive than reviewing a false alarm, the high-recall model wins.
 
-**Top features (Random Forest):** Bank Balance (0.81), Annual Salary (0.19), Employed (0.01). Bank balance is by far the strongest signal.
+**Top features (Random Forest):** Bank Balance (0.80), Annual Salary (0.19), Employed (0.01). Bank balance is by far the strongest signal.
 
 ## Tech Stack
 
